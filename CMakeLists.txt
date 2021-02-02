@@ -11,6 +11,11 @@ cmake_minimum_required( VERSION 3.0 )
 # set project name and version
 project( BamTools LANGUAGES CXX VERSION 2.5.1 )
 
+get_filename_component(BIN "bin" ABSOLUTE)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${BIN}")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${BIN}")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${BIN}")
+
 # Set Release type for builds where CMAKE_BUILD_TYPE is unset
 # This is usually a good default as this implictly enables
 #
@@ -21,7 +26,8 @@ if( NOT CMAKE_BUILD_TYPE )
 endif()
 
 # Need C++11 due to JsonCpp nowadays
-set( CMAKE_CXX_STANDARD 11 )
+#set( CMAKE_CXX_STANDARD 11 )
+set( CMAKE_CXX_STANDARD 17 )
 set( CMAKE_CXX_STANDARD_REQUIRED ON )
 set( CMAKE_CXX_EXTENSIONS OFF )
 
